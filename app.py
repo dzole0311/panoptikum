@@ -48,5 +48,9 @@ def send_static(path):
 def send_images(path):
     return send_from_directory('images', path)
 
+@app.route('/service-worker.js', methods=['GET'])
+def sw():
+    return app.send_static_file('service-worker.js')
+
 if __name__ == '__main__':
     app.run(debug=True)
